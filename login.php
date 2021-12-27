@@ -47,7 +47,7 @@
             // Redirect to user dashboard page
             header("Location: index.php");
         } else {
-            header("location:login.php")
+            header("location:login.php");
         }
     } else {
 ?>

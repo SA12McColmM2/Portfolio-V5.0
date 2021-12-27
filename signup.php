@@ -47,9 +47,9 @@ session_start();
                      VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime')";
         $result   = mysqli_query($con, $query);
         if ($result) {
-            header("location:login.php")
+            header("location:login.php");
         } else {
-            header("location:signup.php")
+            header("location:signup.php");
         }
     } else {
 ?>
