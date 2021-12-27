@@ -61,7 +61,7 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" action="authenticate.php" method="post">
+				<form class="login100-form validate-form" action="" method="post">
 					<span class="login100-form-title">
 						Member Login
 					</span>
