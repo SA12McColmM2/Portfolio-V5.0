@@ -29,6 +29,36 @@ session_start();
 	<script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
+
+<?php
+    require('db.php');
+    // When form submitted, insert values into the database.
+    if (isset($_REQUEST['username'])) {
+        // removes backslashes
+        $username = stripslashes($_REQUEST['username']);
+        //escapes special characters in a string
+        $username = mysqli_real_escape_string($con, $username);
+        $email    = stripslashes($_REQUEST['email']);
+        $email    = mysqli_real_escape_string($con, $email);
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($con, $password);
+        $create_datetime = date("Y-m-d H:i:s");
+        $query    = "INSERT into `users` (username, password, email, create_datetime)
+                     VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime')";
+        $result   = mysqli_query($con, $query);
+        if ($result) {
+            echo "<div class='form'>
+                  <h3>You are registered successfully.</h3><br/>
+                  <p class='link'>Click here to <a href='login.php'>Login</a></p>
+                  </div>";
+        } else {
+            echo "<div class='form'>
+                  <h3>Required fields are missing.</h3><br/>
+                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                  </div>";
+        }
+    } else {
+?>
 	
 	<div class="limiter">
 		<div class="container-login100">
@@ -37,7 +67,7 @@ session_start();
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" action="register.inc.php" method="post">
+				<form class="login100-form validate-form" action="" method="post">
 					<span class="login100-form-title">
 						Signup
 					</span>
@@ -54,7 +84,7 @@ session_start();
 					
 					<div class="wrap-input100 validate-input">
 						<!---------->
-						<input type="text" name="email" placeholder="Email" class="input100" id="email" required>
+						<input type="text" name="email" placeholder="Email Address" class="input100" id="email" required>
 						<!---------->
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -75,7 +105,9 @@ session_start();
 					<div class="g-recaptcha brochure__form__captcha" data-sitekey="6LcAYs4dAAAAAI6oZnN1T6urQpXGeRcnkLUcLXha"></div>
 
 					<div class="container-login100-form-btn">
-						<input type="submit" class="login100-form-btn" type="submit" value="Register" name="signup-submit"/>
+						<input type="submit" class="login100-form-btn" type="submit" value="Register" name="signup"/>
+
+						<p>Already have an account? <a href="login.php">Login</a></p>
 					</div>
 
 

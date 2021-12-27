@@ -1040,3 +1040,12 @@ details {
   margin-right: 500px;
 }
 
+container-login100-form-btn p a {
+  align-items: center;
+  text-align: center;
+}
+
+container-login100-form-btn p {
+  align-items: center;
+  text-align: center;
+}

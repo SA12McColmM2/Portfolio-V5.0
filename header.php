@@ -44,12 +44,7 @@
                       }
 
                   else if (isset($_SESSION['id'])) {
-                    echo             '<li class="nav-item ">
-                    <a class="nav-link" data-scroll href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-    
-    
-    
-    <a class="nav-link" data-scroll href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                    echo '<a class="nav-link" data-scroll href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </li>';
                   }
                 ?>            
