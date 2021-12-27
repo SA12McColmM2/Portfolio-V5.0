@@ -44,10 +44,10 @@
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $_SESSION['username'] = $username;
-            // Redirect to user dashboard page
+            // Redirect to user homepage
             header("Location: index.php");
         } else {
-            header("location:login.php");
+            header("location: login.php");
         }
     } else {
 ?>
