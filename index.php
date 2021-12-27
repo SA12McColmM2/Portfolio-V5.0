@@ -1,5 +1,6 @@
 <?php
-session_start();
+require('db.php');
+include("nonauth_session.php");
 ?>
 
 <!DOCTYPE html>
