@@ -1,7 +1,3 @@
-<?php
-require('db.php');
-include("nonauth_session.php");
-?>
 
 <!DOCTYPE html>
 <html lang="en">
